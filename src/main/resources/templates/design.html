@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" href="" th:href="@{/CSS/base.css}"/>
+	<link rel="stylesheet" href="" th:href="@{/CSS/design.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Dongle:wght@300&family=Neonderthaw&family=Open+Sans:wght@300&family=Pacifico&family=Roboto:wght@100&display=swap" rel="stylesheet">
+	<script th:src="@{/js/search.js}"></script>
+    
+    <title>Design</title>
+    
+  </head>
+  <body>
+  
+   <!--Navigation Bar-->
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a th:href="@{/home}">Doodle Custom</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/founder}">Founders Note</a></li>
+        <li><a th:href="@{/design}">Design</a></li>
+        <li><a th:href="@{/custom}">Custom</a></li>
+        <li><a th:href="@{/artist}">Artists</a></li>
+        <li><a th:href="@{/limitedEdition}">Limited Edition</a></li>
+        <li><a><i class="fas fa-user-circle"><span th:text="' '+${username}"></span></i></a></li>
+        <li><a th:href="@{/cart}"><i class="fas fa-cart-plus"></i>&nbsp(<span th:text="${cartCount}"> 0</span>)</a></li>
+        <li><a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i></a></li> 0</span>)</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    </div>
+  </nav>
+      
+      
+  <script>
+    const body = document.querySelector("body");
+    const navbar = document.querySelector(".navbar");
+    const menuBtn = document.querySelector(".menu-btn");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    menuBtn.onclick = ()=>{
+      navbar.classList.add("show");
+      menuBtn.classList.add("hide");
+      body.classList.add("disabled");
+    }
+    cancelBtn.onclick = ()=>{
+      body.classList.remove("disabled");
+      navbar.classList.remove("show");
+      menuBtn.classList.remove("hide");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  
+ 	
+  	<div class="introimage">
+		<img class="doodley" th:src="@{/productImage/doodle.png}">
+	</div>
+
+
+    <div class= display>
+    
+	<div class= filter>
+			<ul class="list-group">
+				<a th:href="@{/design}"><li class="list-group-item">All
+						products</li></a>
+				<a href="" th:each="category, istat : ${categories}"
+					th:href="@{/design/category/{id}(id=${category.id})}">
+					<li class="list-group" th:text="${category.name}"></li>
+				</a>
+			</ul>
+		</div>
+	
+
+	<div class="rows">
+		<div th:each="p : ${products}">
+			<div class="column">
+				<div class="card">
+					<a th:href="@{'/design/details/'+${p.pId}}"> <img class="imgs"
+						th:src="@{'/productImage/' + ${p.productImage}}" /></a>
+					<h4 th:text="${p.name}"></h4>
+					<p th:text="${'Rs. '+p.price}"></p>
+					<div class="iconss">
+					
+						<a style="padding-right: 15px; color:black; text-decoration:none;"
+								th:href="@{'/design/details/'+${p.pId}}"> 
+								<i class="fas fa-eye"></i>
+							</a> <a style="color:black;" th:href="@{'/addToCart/'+${p.pId}(pId=${p.pId})}"> <i
+								class="fas fa-cart-plus"></i>
+
+							</a>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+
+
+	<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="founder">About Us</a></li>
+                    <li><a href="faq">FQA</a></li>
+                    <li><a href="home">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Business Policies</h4>
+                <ul>
+                    <li><a href="termsnconditions">Terms and Conditions</a></li>
+                    <li><a href="privacypolicy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a >Address: Jorpati, Kathmandu, Nepal </a></li>
+                    <li><a >Phone: (+977) 9803395758</a></li>
+                    <li><a >Email: doodlecustoms2019@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>  
+                <div class="social-links">
+                    <a href="https://www.facebook.com/doodlecustoms/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/channel/UCKruPuRupjfGcMAQgyJq7AQ"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/doodle.customs/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div> 
+        </div>
+    </div>
+</footer>
+		
+		
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+			integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+			integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+			crossorigin="anonymous"></script>
+</body>
+</html>

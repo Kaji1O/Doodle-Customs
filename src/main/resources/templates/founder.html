@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <title>Doodle Customs</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="" th:href="@{/CSS/note.css}" />
+    <link rel="stylesheet" href="" th:href="@{/CSS/base.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Dongle:wght@300&family=Neonderthaw&family=Open+Sans:wght@300&family=Pacifico&family=Roboto:wght@100&display=swap" rel="stylesheet">
+     
+
+</head>
+<body>
+
+   <!--Navigation Bar-->
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a th:href="@{/home}">Doodle Custom</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/founder}">Founders Note</a></li>
+        <li><a th:href="@{/design}">Design</a></li>
+        <li><a th:href="@{/custom}">Custom</a></li>
+        <li><a th:href="@{/artist}">Artists</a></li>
+        <li><a th:href="@{/limitedEdition}">Limited Edition</a></li>
+        <li><a><i class="fas fa-user-circle"><span th:text="' '+${username}"></span></i></a></li>
+        <li><a th:href="@{/cart}"><i class="fas fa-cart-plus"></i>&nbsp(<span th:text="${cartCount}"> 0</span>)</a></li>
+        <li><a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i></a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    </div>
+  </nav>
+ 
+  <script>
+    const body = document.querySelector("body");
+    const navbar = document.querySelector(".navbar");
+    const menuBtn = document.querySelector(".menu-btn");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    menuBtn.onclick = ()=>{
+      navbar.classList.add("show");
+      menuBtn.classList.add("hide");
+      body.classList.add("disabled");
+    }
+    cancelBtn.onclick = ()=>{
+      body.classList.remove("disabled");
+      navbar.classList.remove("show");
+      menuBtn.classList.remove("hide");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+
+<!--Heading-->
+<div class="aboutus">
+    <h2> About Us / Founder Note</h2>
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="headings">
+    <h2>Welcome Note</h2>
+    <br>
+    <h3 style="padding-left: 100px;">- From Founder</h3>
+</div>
+
+<br>
+
+
+<div class="para">
+    <p>It is said, “An idea without implementation is just good thinking.”
+
+    With the experience of over 20 years in the shoemaking business, K.D. Shoes Industries introduced Caliber Shoes with the vision of crafting design and comfort in footwear stirring domestic production and manufacturing taking the 
+    traditional footwear business to what the brand is today one of the leading and most popular footwear companies in Nepal. 
+    with an initial plan to open up 25 outlets in a time frame of 5 years from when the brand was established, the company achieved that target in just 3 years’ time with its fine combination of comfort, style, and quality workmanship. 
+    The brand has also opened up its outlet in Malaysia taking the local name to the international arena, which is an assurance of its durability, availability, and quality.
+    <br>
+    <br>
+    Despite being a local brand, Caliber brings you an exclusive collection of functional and fashionable shoes including sports shoes, casual footwear, formal shoes, boots, and many more. 
+    Get your hands on a pair of these multipurpose shoes to feel the ultimate satisfaction of wearing classy and superior quality footwear crafted to understand your need. From microfiber shoes to boots, Caliber footwear comes in a 
+    variety of colours and materials with price ranges of all your preferred varieties. If you are one of those, who generalize the quality of the product just because its ‘ MADE IN NEPAL’ you need to rethink as Caliber is here to provide 
+    you with your style and ideology with their affordable yet exquisite pairs helping you to become the next hot rage on the block. With a positive word of mouth from its customers both nationally and internationally, the brand aims to 
+    increase the number of outlets in the major cities of the country and start exporting its products as well.</p>
+</div>
+
+<br>
+<br>
+
+<div class="headings">
+  <h2>Welcome Note</h2>
+  <br>
+</div>
+
+<div class="para">
+  <p>It is said, “An idea without implementation is just good thinking.”
+
+  With the experience of over 20 years in the shoemaking business, K.D. Shoes Industries introduced Caliber Shoes with the vision.</p>
+  </div>
+
+<br>
+<br>
+
+<div class="headings">
+  <h2>Welcome Note</h2>
+  <br>
+</div>
+
+<div class="para">
+  <p>It is said, “An idea without implementation is just good thinking.”
+
+  With the experience of over 20 years in the shoemaking business, K.D. Shoes Industries introduced Caliber Shoes with the vision.</p>
+  </div>
+
+  <br>
+  <br>
+
+
+  <div class="TheTeam">
+    <h2>The Team</h2>
+    <br>
+  </div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+<!--FLIP CARDS-->
+
+<div class="rows">
+<div class="center">
+  <div class="front-face">
+    <div class="contents front">
+      <p>Aswin Thapa</p>
+      <span>Chief Marketing Officer</span>
+    </div>
+  </div>
+  <div class="back-face">
+    <div class="contents back">
+      <h2>Doodle Customs</h2>
+      <span></span>
+      <div class="icons">
+        <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/">
+          <i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="centerhi">
+  <div class="fronthi">
+    <div class="contentx front-hi">
+      <p>Sopnil Shrestha</p>
+      <span>Chief Executive Officer</span>
+    </div>
+  </div>
+  <div class="backhi">
+    <div class="contentx back-hi">
+      <h2>Doodle Customs</h2>
+      <span></span>
+      <div class="icons-hi">
+        <a href="https://www.facebook.com/">
+          <i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="https://www.instagram.com/"
+          ><i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="centerhe">
+  <div class="fronthe">
+    <div class="contentss front-he">
+      <p>Saurav Sigdel</p>
+      <span>Chief Product Officer</span>
+    </div>
+  </div>
+  <div class="backhe">
+    <div class="contentss back-he">
+      <h2>Doodle Customs</h2>
+      <h3></h3>
+      <div class="icons-he">
+        <a href="https://www.facebook.com/">
+          <i class="fab fa-facebook-f"></i
+        ></a>
+        <a href="https://www.instagram.com/">
+          <i class="fab fa-instagram"></i
+        ></a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="founder">About Us</a></li>
+                    <li><a href="faq">FQA</a></li>
+                    <li><a href="home">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Business Policies</h4>
+                <ul>
+                    <li><a href="termsnconditions">Terms and Conditions</a></li>
+                    <li><a href="privacypolicy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a >Address: Jorpati, Kathmandu, Nepal </a></li>
+                    <li><a >Phone: (+977) 9803395758</a></li>
+                    <li><a >Email: doodlecustoms2019@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>  
+                <div class="social-links">
+                    <a href="https://www.facebook.com/doodlecustoms/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/channel/UCKruPuRupjfGcMAQgyJq7AQ"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/doodle.customs/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div> 
+        </div>
+    </div>
+</footer>
+</body>
+</html>

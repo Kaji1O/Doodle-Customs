@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="adminBase::layout(~{::section})">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	 <link rel="stylesheet" href="" th:href="@{/CSS/adminBase.css}"/>
+	 <link rel="stylesheet" href="" th:href="@{/CSS/addcategory.css}"/>
+	 
+		 
+</head>
+<body>
+
+	<section style="width: 100%; ">
+	
+
+
+		<!-- Displaying alert message of add contact page -->
+		
+		<div th:if="${session.message}" class="" Style="width: 100%;">
+			<div th:classappend="${'alert-'+session.message.type}" class="alert"
+				role="alert">
+				<span th:text="${session.message.content}"></span>
+			</div>
+			<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+		
+		<div
+			style="text-align: right; font-size: 21px; padding: 8px; padding-right: 15px; margin-top: 30px;">
+			<a th:href="@{/admin/category}"> <i class="fas fa-eye"> View
+					Category </i>
+			</a>
+		</div>
+
+		
+			<div style="margin-top:10px;">
+				<h1 style="color: var(--text-color);">Add Category</h1>
+				<p class="lead" style="color: var(--text-color);">This is a add category page where you can
+					 add the category of the product.</p>
+					 
+			</div>
+		
+
+		<div>
+			<form th:action="@{/admin/category/addc}" method="post"
+				th:object="${category}" style="text-align: center;">
+				<div style="padding-bottom: 10px;">
+					<input type="hidden" name="id" th:field="*{id}" /> <input
+						type="text" name="name" th:field="*{name}" />
+				</div>
+				<button type="submit" class="btn btn-primary" style="padding-left: 30px; padding-right:30px; margin-left:100px; margin-top:10px;">Save</button>
+
+			</form>
+		</div>
+		
+	</section>
+
+
+</body>
+</html>

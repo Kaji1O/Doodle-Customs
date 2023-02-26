@@ -1,0 +1,235 @@
+.header h2{
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 4rem;
+    text-align: center;
+    font-family: 'Dongle', sans-serif;
+    margin-top: 30px;
+    background-color: black;
+    padding: 100px;
+    text-align: left;  
+}
+
+
+@font-face {
+    font-family: pop;
+    src: url(./fonts/Poppins-Regular.ttf);
+}
+
+.about_section{
+    width: 75%;
+    height: auto;
+    background-color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 13%;
+    font-family: pop;
+    margin-top: 80px;
+}
+
+.about_details h1{
+    font-size: 50px;
+    color: #000000;
+    position: relative;
+}
+
+
+.about_details h1::after{
+    content: " ";
+    position: absolute;
+    width: 120px;
+    height: 4px;
+    background-color: #f39c12;
+    border-radius: 5px;
+    left: 0;
+    bottom: 2px;
+}
+
+.about_details p{
+    font-size: 15px;
+    color: #000000;
+    max-width: 480px;
+    margin: 30px 0 45px 0;
+    line-height: 29px;
+}
+
+.btn{
+    padding: 10px 25px;
+    border: 2px solid #f39c12;
+    border-radius: 5px;
+    color: #f39c12;
+    text-decoration: none;
+    margin: 30px 0;
+    transition: all .5s ease;
+    font-weight: 600;
+}
+
+.btn:hover{
+    background-color: #f39c12;
+    color: #333;
+}
+.btn1{
+    margin-right: 15px;
+    background-color: #f39c12;
+    color: #000;
+}
+
+.btn1:hover{
+    background-color: transparent;
+    color: #f39c12;
+}
+
+
+
+/* flip card */
+
+.wrapper{
+  height: 450px;
+  width: 450px;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  right: 120px;
+}
+.wrapper .card{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  transform: translateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+}
+.wrapper:hover > .front-face{
+  transform: rotateY(-180deg);
+}
+.wrapper .card img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.wrapper .back-face{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  transform: rotateY(180deg);
+}
+.wrapper:hover > .back-face{
+  transform: rotateY(0deg);
+}
+.wrapper .back-face img{
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 50%;
+  background: linear-gradient(375deg, #1cc7d0, #2ede98);
+}
+.wrapper .back-face .info{
+  text-align: center;
+}
+.back-face .info .title{
+  font-size: 30px;
+  font-weight: 500;
+}
+.back-face ul{
+  display: flex;
+}
+.back-face ul a{
+  display: block;
+  height: 40px;
+  width: 40px;
+  color: #fff;
+  text-align: center;
+  margin: 0 5px;
+  line-height: 38px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background: linear-gradient(375deg, #1cc7d0, #2ede98);
+  transition: all 0.5s ease;
+}
+.back-face ul a:hover{
+  color: #1cc7d0;
+  border-color: #1cc7d0;
+  background: linear-gradient(375deg, transparent, transparent);
+}
+
+
+
+
+/* artist2 */
+
+.about_section1{
+    width: 75%;
+    height: auto;
+    background-color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 13%;
+    font-family: pop;
+    margin-top: 30px;
+}
+
+	
+
+/* flip card */
+
+.wrapper1{
+  height: 450px;
+  width: 450px;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  left: 1100px;
+}
+
+.wrapper1 .card{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  background: #fff;
+  border-radius: 10px;
+  transform: translateY(0deg);
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.1);
+  transition: transform 0.7s cubic-bezier(0.4,0.2,0.2,1);
+}
+.wrapper1:hover > .front-face{
+  transform: rotateY(-180deg);
+}
+.wrapper1 .card img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.wrapper1 .back-face{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  transform: rotateY(180deg);
+}
+.wrapper1:hover > .back-face{
+  transform: rotateY(0deg);
+}
+.wrapper1 .back-face img{
+  height: 150px;
+  width: 150px;
+  padding: 5px;
+  border-radius: 50%;
+  background: linear-gradient(375deg, #1cc7d0, #2ede98);
+}
+
+.wrapper1 .back-face .info{
+  text-align: center;
+}

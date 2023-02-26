@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <link rel="stylesheet" href="" th:href="@{/CSS/base.css}"/>
+	
+	 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Dongle:wght@300&family=Neonderthaw&family=Open+Sans:wght@300&family=Pacifico&family=Roboto:wght@100&display=swap" rel="stylesheet">
+	
+	<script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
+	
+  	<link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+  	
+  	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  	
+  	<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  	
+ 
+  	<link rel="stylesheet" th:href="@{/CSS/carts.css}">
+
+
+  	<link
+    href="https://fonts.googleapis.com/css?family=Source+Sans+3:200,300,regular,500,600,700,800,900,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+    rel="stylesheet" />
+    
+    
+  </head>
+  <body>
+  
+ <!--Navigation Bar-->
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a th:href="@{/home}">Doodle Custom</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/founder}">Founders Note</a></li>
+        <li><a th:href="@{/design}">Design</a></li>
+        <li><a th:href="@{/custom}">Custom</a></li>
+        <li><a th:href="@{/artist}">Artists</a></li>
+        <li><a th:href="@{/limitedEdition}">Limited Edition</a></li>
+       <li><a><i class="fas fa-user-circle"><span th:text="' '+${username}"></span></i></a></li>
+        <li><a th:href="@{/cart}"><i class="fas fa-cart-plus"></i>&nbsp(<span th:text="${cartCount}"> 0</span>)</a></li>
+        <li><a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i></a></li> 0</span>)</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    </div>
+  </nav>
+  
+  <script>
+    const body = document.querySelector("body");
+    const navbar = document.querySelector(".navbar");
+    const menuBtn = document.querySelector(".menu-btn");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    menuBtn.onclick = ()=>{
+      navbar.classList.add("show");
+      menuBtn.classList.add("hide");
+      body.classList.add("disabled");
+    }
+    cancelBtn.onclick = ()=>{
+      body.classList.remove("disabled");
+      navbar.classList.remove("show");
+      menuBtn.classList.remove("hide");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+ 
+
+<br>
+<br>
+<br>
+<br>
+
+	
+	
+	<!--
+    - main container
+  -->
+
+  <main class="containers">
+
+    <h1 class="heading">
+      <ion-icon name="cart-outline"></ion-icon> Shopping Cart
+    </h1>
+
+    <div class="item-flex">
+
+      <!--
+       - checkout section
+      -->
+      <section class="checkout">
+
+        <h2 class="section-heading">Payment Details</h2>
+
+        <div class="payment-form">
+
+          <div class="payment-method">
+
+            <button id="payment-button" onclick="payment()" class="method">
+              <ion-icon name="card"></ion-icon>
+				
+              <span>Khalti </span>
+
+              <ion-icon class="checkmark fill" name="checkmark-circle-outline"></ion-icon>
+            </button>  
+            
+            <button class="method">
+             <ion-icon name="card"></ion-icon>
+				<input class="checkBoxx" type="checkbox" id="myCheck" onclick="myFunction()" style="width: 20px !important">
+              <span  for="myCheck"> <span>Cash on Delivery</span></span>
+		</button>    
+
+          </div>
+
+			
+          <form id = "text" th:action="@{/orders}" method="post" th:object="${orders}" style="display: none;">
+
+            <div class="cardholder-name">
+              <label for="cardholder-name" class="label-default">Full Name</label>
+              <input required type="text" name="name" id="cardholder-name" class="input-default">
+            </div>
+
+            <div class="card-number">
+              <label for="card-number" class="label-default">Phone Number</label>
+              <input required type="number" name="phoneNumber" id="card-number" class="input-default">
+            </div>
+
+            <div class="input-flex">
+
+              <div class="cvv">
+                <label for="cvv" class="label-default">Address</label>
+                <input required type="text" name="address" id="cvv" class="input-default">
+              </div>
+
+            </div>
+            <button class="btn btn-primary">
+            	<b>Checkout</b>
+        	</button>
+
+          </form>
+
+        </div>
+       
+      </section>
+
+
+      <!--
+        - cart section
+      -->
+      <section class="cart">
+
+        <div class="cart-item-box">
+
+          <h2 class="section-heading">Order Summary</h2>
+
+          <div class="product-card">
+
+            <div class="card" th:each="c : ${carts}">
+           
+
+              <div class="img-box">
+                <img style="width: 100px;border-radius: 5px; margin-bottom:30px;" th:src="@{'/ProductImage/' + ${c.productImage}}" class="product-img" />
+              </div>
+				
+              <div class="detail">
+
+                <h4 class="product-name" th:text="${c.name}"></h4>
+
+
+                <div class="wrapper">
+
+                  <div class="product-qty">
+                    <button id="decrement">
+                      <ion-icon name="remove-outline"></ion-icon>
+                    </button>
+
+                    <span id="quantity">1</span>
+
+                    <button id="increment">
+                      <ion-icon name="add-outline"></ion-icon>
+                    </button>
+                  </div>
+
+                  <div class="price">
+                  <span th:text="${'Rs. '+c.price}"></span>
+                  </div>
+
+                </div>
+
+              </div>
+
+              <button class="product-close-btn">
+                <a th:href="@{'/Cart/remove/'+${c.pId}(pId=${c.pId})}"><ion-icon name="close-outline"></ion-icon></a>
+              </button>
+
+            </div>
+
+          </div>
+          
+		
+       <div class="product-card">
+
+            <div class="card" th:each="e : ${cart}">
+           
+
+              <div class="img-box">
+                <img style="width: 100px;border-radius: 5px; margin-bottom:30px;" th:src="@{'/ProductImage/' + ${e.productImage}}" class="product-img" />
+              </div>
+
+              <div class="detail">
+
+                <h4 class="product-name" th:text="${e.name}"></h4>
+
+
+                <div class="wrapper">
+
+                  <div class="product-qty">
+                    <button id="decrement">
+                      <ion-icon name="remove-outline"></ion-icon>
+                    </button>
+
+                    <span id="quantity">1</span>
+
+                    <button id="increment">
+                      <ion-icon name="add-outline"></ion-icon>
+                    </button>
+                  </div>
+
+                  <div class="price">
+                  <span th:text="${'Rs. '+e.price}"></span>
+                  </div>
+
+                </div>
+
+              </div>
+				
+				
+			<button class="product-close-btn">
+                <a  th:href="@{'/Carts/remove/'+${e.eId}(eId=${e.eId})}"><ion-icon name="close-outline"></ion-icon></a>
+			</button>
+			
+              
+
+            </div>
+
+          </div>
+           <div class="product-card">
+
+            <div class="card" th:each="s : ${customs}">
+           
+
+              <div class="img-box">
+                <img style="width: 100px;border-radius: 5px; margin-bottom:30px;" th:src="@{'/ProductImage/' + ${s.image}}" class="product-img" />
+              </div>
+
+              <div class="detail">
+
+                <h4 class="product-name" th:text="${s.name}"></h4>
+
+
+                <div class="wrapper">
+
+                  <div class="product-qty">
+                    <button id="decrement">
+                      <ion-icon name="remove-outline"></ion-icon>
+                    </button>
+
+                    <span id="quantity">1</span>
+
+                    <button id="increment">
+                      <ion-icon name="add-outline"></ion-icon>
+                    </button>
+                  </div>
+
+                  <div class="price">
+                  <span th:text="${'Rs. '+s.price}"></span>
+                  </div>
+
+                </div>
+
+              </div>
+				
+				
+			<button class="product-close-btn">
+                <a th:href="@{'/customCarts/remove/'+${s.dId}(dId=${s.dId})}"><ion-icon name="close-outline"></ion-icon></a>
+			</button>
+			
+              
+
+            </div>
+
+          </div>
+
+        <div class="wrapper">
+
+          <div class="discount-token">
+
+            <label for="discount-token" class="label-default">Gift card/Discount code</label>
+
+            <div class="wrapper-flex">
+
+              <input type="text" name="discount-token" id="discount-token" class="input-default">
+
+              <button class="btn btn-outline">Apply</button>
+
+            </div>
+
+          </div>
+
+          <div class="amount">
+
+            <div class="subtotal">
+              <span>Subtotal</span> <span>$ <span id="subtotal"></span></span>
+              
+            </div>
+
+            <div class="tax">
+              <span>Tax</span> <span>$ <span id="tax"></span></span>
+            </div>
+
+            <div class="shipping">
+              <span>Shipping</span> <span>$ <span id="shipping"></span></span>
+            </div>
+
+            <div class="total">
+              <span>Total</span> <span>$ <span id="total" th:text="${total+totals+customTotal}"></span></span>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script type="text/javascript" src="js/cart.js" /></script>
+
+
+ <!-- Cash on delivery js -->
+	<script>
+			function myFunction() {
+ 			 var checkBox = document.getElementById("myCheck");
+  			var text = document.getElementById("text");
+  			if (checkBox.checked == true){
+    		text.style.display = "block";
+  			} else {
+     		text.style.display = "none";
+  		}
+		}
+		</script>
+
+
+
+
+
+
+
+	<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="founder">About Us</a></li>
+                    <li><a href="faq">FQA</a></li>
+                    <li><a href="home">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Business Policies</h4>
+                <ul>
+                    <li><a href="termsnconditions">Terms and Conditions</a></li>
+                    <li><a href="privacypolicy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a >Address: Jorpati, Kathmandu, Nepal </a></li>
+                    <li><a >Phone: (+977) 9803395758</a></li>
+                    <li><a >Email: doodlecustoms2019@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>  
+                <div class="social-links">
+                    <a href="https://www.facebook.com/doodlecustoms/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/channel/UCKruPuRupjfGcMAQgyJq7AQ"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/doodle.customs/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div> 
+        </div>
+    </div>
+</footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  
+  
+  <script>
+        var config = {
+            // replace the publicKey with yours
+            "publicKey": "test_public_key_79995cf146e045fea87cfb67d82afbb9",
+            "productIdentity": "1234567890",
+            "productName": "Dragon",
+            "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+            "paymentPreference": [
+                "KHALTI"
+               
+                ],
+            "eventHandler": {
+                onSuccess (payload) {
+                    // hit merchant api for initiating verfication
+                	let httpRequest = new XMLHttpRequest();
+					httpRequest.open("GET",'http://localhost:9090/khalti');
+					httpRequest.send();
+					httpRequest.onload= function(){
+						swal("Thank You!", "Your Order has been placed!", "success");
+					}
+                    console.log(payload);
+                },
+                onError (error) {
+                    console.log(error);
+                },
+                onClose () {
+                    console.log('widget is closing');
+                }
+            }
+        };
+
+        var checkout = new KhaltiCheckout(config);
+        var btn = document.getElementById("payment-button");
+        btn.onclick = function () {
+            // minimum transaction amount must be 10, i.e 1000 in paisa.
+            
+            checkout.show({amount: 1000});
+        }
+    </script>
+  
+  </body>
+</html>

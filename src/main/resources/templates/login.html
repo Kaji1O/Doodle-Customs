@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<link rel="stylesheet" type="text/css" th:href="@{/CSS/loginandsignup.css}"/>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+
+<title>Login </title>
+
+  </head>
+  <body>
+  
+  
+      <div class="container">
+      <!-- Display message-->
+		<div th:if="${session.message}" class="" Style="width: 100%;">
+			<div th:classappend="${'alert-'+session.message.type}" class="alert"
+				role="alert">
+				<span th:text="${session.message.content}"></span>
+			</div>
+			<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+         <header>Login</header>
+         <form th:action="@{/login}" method="POST">
+         
+            <div class="input-field">
+               <input type="text" name="email" required>
+               <label>Email</label>
+            </div>
+            
+            <div class="input-field">
+               <input class="pswrd" name="password" type="password" required>
+               <span class="show">SHOW</span>
+               <label>Password</label>
+            </div>
+            
+            <div class="pass">
+                  <a th:href="@{/forgotpassword}">Forgot Password ?</a>
+               </div>
+               
+            <div class="button">
+               <div class="inner"></div>
+               <button type="submit">LOGIN</button>
+            </div>
+            
+         </form>
+         
+        <!--  <div class="auth">
+            Or login with
+         </div>
+         
+         <div class="links">
+            <div class="google">
+            <a th:href="@{/oauth2/authorization/google}"><i class="fab fa-google-plus-square">
+            <span>Google</span></i></a>
+            </div>
+         </div>
+          -->
+         <div class="signup">
+            Not a member? <a th:href="@{/signup}">Signup now</a>
+         </div>
+      </div>
+      
+      <script>
+         var input = document.querySelector('.pswrd');
+         var show = document.querySelector('.show');
+         show.addEventListener('click', active);
+         function active(){
+           if(input.type === "password"){
+             input.type = "text";
+             show.style.color = "#1DA1F2";
+             show.textContent = "HIDE";
+           }else{
+             input.type = "password";
+             show.textContent = "SHOW";
+             show.style.color = "#111";
+           }
+         }
+      </script>
+    
+  </body>
+</html>

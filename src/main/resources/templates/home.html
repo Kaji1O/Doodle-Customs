@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="" th:href="@{/CSS/home.css}"/>
+    <link rel="stylesheet" href="" th:href="@{/CSS/base.css}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Dongle:wght@300&family=Neonderthaw&family=Open+Sans:wght@300&family=Pacifico&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <!--Navigation Bar-->
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a th:href="@{/home}">Doodle Custom</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/founder}">Founders Note</a></li>
+        <li><a th:href="@{/design}">Design</a></li>
+        <li><a th:href="@{/custom}">Custom</a></li>
+        <li><a th:href="@{/artist}">Artists</a></li>
+        <li><a th:href="@{/limitedEdition}">Limited Edition</a></li>
+        <li><a><i class="fas fa-user-circle"><span th:text="' '+${username}"></span></i></a></li>
+        <li><a th:href="@{/cart}"><i class="fas fa-cart-plus"></i>&nbsp(<span th:text="${cartCount}"> 0</span>)</a></li>
+        <li><a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i></a></li>
+      </ul>
+      
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+     
+    
+    </div>
+  </nav>
+  
+  <script>
+    const body = document.querySelector("body");
+    const navbar = document.querySelector(".navbar");
+    const menuBtn = document.querySelector(".menu-btn");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    menuBtn.onclick = ()=>{
+      navbar.classList.add("show");
+      menuBtn.classList.add("hide");
+      body.classList.add("disabled");
+    }
+    cancelBtn.onclick = ()=>{
+      body.classList.remove("disabled");
+      navbar.classList.remove("show");
+      menuBtn.classList.remove("hide");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+
+<br>
+<br>
+<br>
+<br>
+
+
+   <!--Heading-->
+  <div class="containerrr">
+  <h2>Screw fitting in when you are custom made </h2>
+  </div>
+
+
+<!--Image Slider-->
+
+
+<div class="img-slider">
+    <div class="slide active">
+      <img src="/productImage/8 miles.jpeg" alt="">
+      <div class="info">
+        <h2>8 Miles</h2>
+        <p>May i have your attention, please?
+          Will the real slim shady please stand up?
+        </p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/productImage/joker.png" alt="">
+      <div class="info">
+        <h2>The Joker</h2>
+        <p>Let's put a smile on that face! Until now, this has been one of our most favorite customs.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/productImage/mushroom.JPG" alt="">
+      <div class="info">
+        <h2>Mushroom</h2>
+        <p>Magic Mushroom inspired custom design which is intricate and in high demand.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/productImage/bandana.png" alt="">
+      <div class="info">
+        <h2>Bandana</h2>
+        <p>बन्दना, बन्दना gang. Bandana inspired custom old skool vans.</p>
+      </div>
+    </div>
+    <div class="slide">
+      <img src="/productImage/offthewall.jpeg" alt="">
+      <div class="info">
+        <h2>Off The Wall</h2>
+        <p>Vans Off The Wall custom design.</p>
+      </div>
+    </div>
+    <div class="navigation">
+      <div class="btn active"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+      <div class="btn"></div>
+    </div>
+  </div>
+  
+
+
+
+  <div class="feat">
+    <h2>New Arrivals</h2>
+</div>
+
+<!--Images-->
+<div class="rows">
+    <div class="column">
+      <div class="card">
+        <a href="http://localhost:9090/design/details/9"><img class="imgs" src="/productImage/joker.png"></a>
+        <h4>Joker</h4>
+        <p>NPR 3,500</p>
+      </div>
+    </div>
+  
+    <div class="column">
+      <div class="card">
+        <a href="http://localhost:9090/design/details/7"><img class="imgs" src="/productImage/8 miles.jpeg"></a>
+        <h4>8 Miles</h4>
+        <p>NPR 3,500</p>
+      </div>
+    </div>
+    
+    <div class="column">
+      <div class="card">
+        <a href="http://localhost:9090/design/details/48"><img class="imgs" src="/productImage/flag.png"></a>
+        <h4>Flag</h4>
+        <p>NPR 4,000</p>
+      </div>
+    </div>
+    
+    <div class="column">
+      <div class="card">
+        <a href="http://localhost:9090/design/details/8"><img class="imgs" src="/productImage/bandana.png"></a>
+        <h4>Bandana</h4>
+        <p>NPR 3,000</p>
+      </div>
+    </div>
+  </div>
+
+  <!--Featured Products-->
+  <div class="feat">
+    <h2>Featured Products</h2>
+</div>
+
+<div class="rows">
+    <div class="column">
+      <div class="card">
+        <a href="http://localhost:9090/design/details/49"><img class="imgs" src="/productImage/mushroom.JPG"></a>
+        <h4>Mushroom</h4>
+        <p>NPR 3,800</p>
+      </div>
+    </div>
+  
+    <div class="column">
+      <div class="card">
+        <a href="http://localhost:9090/design/details/50"><img class="imgs" src="/productImage/starswar.png"></a>
+        <h4>Star Wars</h4>
+        <p>NPR 3,500</p>
+      </div>
+    </div>
+    
+    <div class="column">
+      <div class="card">
+        <a href="http://localhost:9090/design/details/182"><img class="imgs" src="/productImage/offthewall.jpeg"></a>
+        <h4>Off The Wall</h4>
+        <p>NPR 4,000</p>
+      </div>
+    </div>
+    
+    <div class="column">
+      <div class="card">
+        <a href="http://localhost:9090/design/details/52"><img class="imgs" src="/productImage/nirvana.png"></a>
+        <h4>Nirvana</h4>
+        <p>NPR 3,200</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- custom -->
+  <div class="custom">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <img src="/productImage/logo.png" class="custom-img">
+            </div>
+            <div class="col-2">
+                <p>Exclusively Available on Doodle Custom</p>
+                <h1>Custom Shoes</h1>
+                <small> You can custom your own design and order now. </small><br>
+                <a th:href="@{/custom}" class="Ebtn">Edit Design &#8594;</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- testimonial -->
+
+  <div class="test">
+    <h2>Testimonials</h2>
+</div>
+
+<div class="testimonial">
+  <div class="small-container">
+      <div class="roow">
+        <div class="col-3">
+              <i class="fa fa-quote-left" ></i>
+              <a href="https://www.google.com/search?q=doodle+customs&rlz=1C1CHBD_enNP971NP971&oq=doodle+customs&aqs=chrome..69i57j69i61l2.3070j0j4&sourceid=chrome&ie=UTF-8#lrd=0x39eb1b8316e307b5:0x693f9afdac8c371f,1,,," style="text-decoration:none;">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p></a>
+              <div class="rating"> 
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star-o" ></i>
+              </div>
+              <h3>Sean Parkar</h3>
+          </div>
+          <div class="col-3">
+              <i class="fa fa-quote-left" ></i>
+              <a href="https://www.google.com/search?q=doodle+customs&rlz=1C1CHBD_enNP971NP971&oq=doodle+customs&aqs=chrome..69i57j69i61l2.3070j0j4&sourceid=chrome&ie=UTF-8#lrd=0x39eb1b8316e307b5:0x693f9afdac8c371f,1,,," style="text-decoration:none;">
+              <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p></a>
+              <div class="rating">
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star-o" ></i>
+              </div>
+              <h3>Mike Smith</h3>
+          </div>
+          <div class="col-3">
+              <i class="fa fa-quote-left" ></i>
+              <a href="https://www.google.com/search?q=doodle+customs&rlz=1C1CHBD_enNP971NP971&oq=doodle+customs&aqs=chrome..69i57j69i61l2.3070j0j4&sourceid=chrome&ie=UTF-8#lrd=0x39eb1b8316e307b5:0x693f9afdac8c371f,1,,," style="text-decoration:none;">
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p></a>
+              <div class="rating"> 
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star" ></i>
+                  <i class="fa fa-star-o" ></i>
+              </div>
+              <h3>Mabel Joe</h3>
+          </div>
+      </div>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+
+
+  <script type="text/javascript">
+  var slides = document.querySelectorAll('.slide');
+  var btns = document.querySelectorAll('.btn');
+  let currentSlide = 1;
+
+  // Javascript for image slider manual navigation
+  var manualNav = function(manual){
+    slides.forEach((slide) => {
+      slide.classList.remove('active');
+
+      btns.forEach((btn) => {
+        btn.classList.remove('active');
+      });
+    });
+
+    slides[manual].classList.add('active');
+    btns[manual].classList.add('active');
+  }
+
+  btns.forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      manualNav(i);
+      currentSlide = i;
+    });
+  });
+
+  // Javascript for image slider autoplay navigation
+  var repeat = function(activeClass){
+    let active = document.getElementsByClassName('active');
+    let i = 1;
+
+    var repeater = () => {
+      setTimeout(function(){
+        [...active].forEach((activeSlide) => {
+          activeSlide.classList.remove('active');
+        });
+
+      slides[i].classList.add('active');
+      btns[i].classList.add('active');
+      i++;
+
+      if(slides.length == i){
+        i = 0;
+      }
+      if(i >= slides.length){
+        return;
+      }
+      repeater();
+    }, 10000);
+    }
+    repeater();
+  }
+  repeat();
+  </script>
+
+<!--services-->
+<section class="sec-06">
+  <div class="services">
+        <h1>Our Services</h1>
+        <div class="cen reveal">
+          <div class="service ">
+            <i class="fas fa-shipping-fast"></i>
+            <h2>Delivery</h2>
+            <p>Delivery Across All Major Cities in Nepal.</p>
+          </div>
+  
+          <div class="service">
+            <i class="far fa-calendar-alt"></i>
+            <h2>Return & Exchange</h2>
+            <p>7 Days Return and Exchange Policy.</p>
+          </div>
+  
+          <div class="service">
+            <i class="far fa-futbol"></i>
+            <h2>Customer Support</h2>
+            <p>Customer support for accessibility.</p>
+          </div>
+
+        </div>
+      </div>
+  
+      </section>
+
+
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="founder">About Us</a></li>
+                    <li><a href="faq">FQA</a></li>
+                    <li><a href="home">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Business Policies</h4>
+                <ul>
+                    <li><a href="termsnconditions">Terms and Conditions</a></li>
+                    <li><a href="privacypolicy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a >Address: Jorpati, Kathmandu, Nepal </a></li>
+                    <li><a >Phone: (+977) 9803395758</a></li>
+                    <li><a >Email: doodlecustoms2019@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>  
+                <div class="social-links">
+                    <a href="https://www.facebook.com/doodlecustoms/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/channel/UCKruPuRupjfGcMAQgyJq7AQ"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/doodle.customs/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div> 
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    
+    <link rel="stylesheet" href="" th:href="@{/CSS/adminBase.css}"/>
+     
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav>
+        <div class="logo-name">
+            <div class="logo-image">
+                <a th:href="@{/admin}"><img src="/productImage/logo.png" alt=""></a>
+            </div>
+
+            <span class="logo_name">Doodle Customs</span>
+        </div>
+
+        <div class="menu-items">
+            <ul class="nav-links">
+                <li><a th:href="@{/admin}">
+                    <i class="uil uil-estate"></i>
+                    <span class="link-name">Dashboard</span>
+                </a></li>
+                <li><a>
+                    <span class="link-name">Category</span>
+                </a></li>
+                
+                <li><a th:href="@{/admin/category/addc}">
+                   	<i><img src="/productImage/category.png"></i>
+                    <span class="link-name">Add Category</span>
+                </a></li>
+                <li><a th:href="@{/admin/category}">
+                    <i><img src="/productImage/view.png"></i>
+                    <span class="link-name">View Category</span>
+                </a></li>
+                
+                <li><a>
+                    <span class="link-name">Add Products</span>
+                </a></li>
+                
+                <li><a th:href="@{/admin/product/add}">
+                    <i><img src="/productImage/shoes.png"></i>
+                    <span class="link-name">Add Designs</span>
+                </a></li>
+                <li><a th:href="@{/admin/limitedEdition}">
+                      <i><img src="/productImage/limited.png"></i>
+                    <span class="link-name">Add Editions</span>
+                </a></li>
+                 <li><a th:href="@{/admin/custom}">
+                   <i><img src="/productImage/art.png"></i>
+                    <span class="link-name">Add Customs</span>
+                </a></li>
+                
+                
+                 <li><a>
+                    <span class="link-name">View Products</span>
+                </a></li>
+                
+                <li><a th:href="@{/admin/product}">
+                    <i><img src="/productImage/shoes.png"></i>
+                    <span class="link-name">Designs</span>
+                </a></li>
+                <li><a th:href="@{/admin/viewlimitedEdition}">
+                    <i><img src="/productImage/limited.png"></i>
+                    <span class="link-name">Limited Editions</span>
+                </a></li>
+                 <li><a th:href="@{/admin/ViewCustom}">
+                    <i><img src="/productImage/art.png"></i>
+                    <span class="link-name">Customs</span>
+                </a></li>
+                
+                
+            </ul>
+            
+            <ul class="logout-mode">
+                <li><a th:href="@{/logout}">
+                    <i class="uil uil-signout"></i>
+                    <span class="link-name">Logout</span>
+                </a></li>
+
+                <li class="mode">
+                    <a href="#">
+                        <i class="uil uil-moon"></i>
+                    <span class="link-name">Dark Mode</span>
+                </a>
+
+                <div class="mode-toggle">
+                  <span class="switch"></span>
+                </div>
+            </li>
+            </ul>
+        </div>
+    </nav>
+	
+    <section class="dashboard">
+        <div class="top">
+            <i class="uil uil-bars sidebar-toggle"></i>
+
+            <div class="search-box">
+                <i class="uil uil-search"></i>
+                <input type="text" placeholder="Search here...">
+            </div>
+      		<div class="user">
+            <i style="color: var(--text-color);" class="far fa-user"><span style="color: var(--text-color);" th:text="' '+${user}"></span></i>
+            </div>
+        </div>
+		
+		
+        <div class="dash-content">
+           
+                
+                <div th:replace="${content}"></div>
+        </div>
+        
+    </section>
+    
+
+    <script type="text/javascript">
+    const body = document.querySelector("body"),
+    modeToggle = body.querySelector(".mode-toggle");
+    sidebar = body.querySelector("nav");
+    sidebarToggle = body.querySelector(".sidebar-toggle");
+
+let getMode = localStorage.getItem("mode");
+if(getMode && getMode ==="dark"){
+  body.classList.toggle("dark");
+}
+
+let getStatus = localStorage.getItem("status");
+if(getStatus && getStatus ==="close"){
+  sidebar.classList.toggle("close");
+}
+
+modeToggle.addEventListener("click", () =>{
+  body.classList.toggle("dark");
+  if(body.classList.contains("dark")){
+      localStorage.setItem("mode", "dark");
+  }else{
+      localStorage.setItem("mode", "light");
+  }
+});
+
+sidebarToggle.addEventListener("click", () => {
+  sidebar.classList.toggle("close");
+  if(sidebar.classList.contains("close")){
+      localStorage.setItem("status", "close");
+  }else{
+      localStorage.setItem("status", "open");
+  }
+})
+</script>
+</body>
+</html>

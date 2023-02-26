@@ -1,0 +1,138 @@
+.introimage .edition {
+	position: absolute;
+	width: 1000px;
+	height: 290px;
+	left: 445px;
+	top: 155px;
+	margin-bottom: 400px;
+}
+
+.cartbutton {
+	display: inline-block;
+	background: #4a4747;
+	color: #fff;
+	padding: 8px 25px;
+	margin: 2px 0px;
+	border-radius: 20px;
+	transition: background 0.5s;
+	cursor: pointer;
+}
+
+.cartbutton:hover {
+	background: #fc9003;
+}
+
+.icons {
+  color: black;
+  font-size: 25px;
+  cursor: pointer;
+ 
+	}
+
+
+/* New Arrivals/Featured Products */
+.feat h2 {
+	color: #000000;
+	font-weight: 500;
+	font-size: 3rem;
+	text-align: center;
+	font-family: 'Send Flowers', cursive;
+	position: sticky;
+	margin-top: 350px;
+}
+
+.feat h2::after {
+	content: '';
+	background: #ff523b;
+	width: 300px;
+	height: 5px;
+	border-radius: 5px;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+
+/*Products*/
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 15px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .rows {
+    margin: 80px ;
+    padding-left: 120px;
+    padding-right: 120px;
+
+  }
+
+  
+  /* Clear floats after the columns */
+  .rows:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+
+
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #ffffff;
+    height: 430px;
+    width: 340px;
+    position: sticky;
+    padding-left: 10px;
+    margin-bottom: 100px;
+    margin-top: 20px;
+  }
+
+  .card:hover {
+    transform: scale(0.95);   
+    transition: transform 0.5s;
+    cursor: pointer;
+   
+  }
+  
+  .card .imgs{
+      height: 250px;
+      width: 260px;
+  }
+
+.card h4{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 100px;
+    font-size: 30px;
+    color: #939393;
+    padding-top: 10px;
+}
+
+.card p{
+    font-family: 'Dongle', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+}
+
+
+
+
+
+
+

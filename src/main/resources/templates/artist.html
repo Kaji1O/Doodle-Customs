@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <title>Doodle Customs</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="" th:href="@{/CSS/artist.css}" />
+    <link rel="stylesheet" href="" th:href="@{/CSS/base.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&family=Neonderthaw&family=Open+Sans:wght@300&family=Pacifico&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Dongle:wght@300&family=Neonderthaw&family=Open+Sans:wght@300&family=Pacifico&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    
+   
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+</head>
+<body>
+
+   <!--Navigation Bar-->
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a th:href="@{/home}">Doodle Custom</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/founder}">Founders Note</a></li>
+        <li><a th:href="@{/design}">Design</a></li>
+        <li><a th:href="@{/custom}">Custom</a></li>
+        <li><a th:href="@{/artist}">Artists</a></li>
+        <li><a th:href="@{/limitedEdition}">Limited Edition</a></li>
+        <li><a><i class="fas fa-user-circle"><span th:text="' '+${username}"></span></i></a></li>
+        <li><a th:href="@{/cart}"><i class="fas fa-cart-plus"></i>&nbsp(<span th:text="${cartCount}"> 0</span>)</a></li>
+        <li><a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i></a></li> 0</span>)</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    </div>
+  </nav>
+ 
+  <script>
+    const body = document.querySelector("body");
+    const navbar = document.querySelector(".navbar");
+    const menuBtn = document.querySelector(".menu-btn");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    menuBtn.onclick = ()=>{
+      navbar.classList.add("show");
+      menuBtn.classList.add("hide");
+      body.classList.add("disabled");
+    }
+    cancelBtn.onclick = ()=>{
+      body.classList.remove("disabled");
+      navbar.classList.remove("show");
+      menuBtn.classList.remove("hide");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+
+ <!--Heading-->
+<div class="header">
+    <h2> The Artist / The Foundation</h2>
+</div>
+
+
+
+    <section class="about_section" id="About">
+        
+            <div class="wrapper">
+         <div class="card front-face">
+            <img src="/productImage/Artist.png">
+         </div>
+         <div class="card back-face">
+            <img src="/productImage/Artist.png">
+            <div class="info">
+               <div class="title">
+                  Doodle Custom
+               </div>
+               <p>
+                  One of the Co-founder and <br>The Artist.
+               </p>
+            </div>
+            <ul>
+               <a href="https://www.facebook.com/saurav.sigdel.58"><i class="fab fa-facebook-f"></i></a>
+               <a href="https://www.instagram.com/subigya.sigdel/"><i class="fab fa-instagram"></i></a>
+               <a href="https://www.youtube.com/channel/UCKruPuRupjfGcMAQgyJq7AQ"><i class="fab fa-youtube"></i></a>
+            </ul>
+         </div>
+      </div>
+        
+        <div class="about_details">
+            <h1>Saurav Sigdel</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae ipsam voluptas perspiciatis voluptatum magnam fugit deleniti, dolorem rerum excepturi quasi! <br><br>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore consectetur quidem animi at debitis.</p>
+            <div class="btns">
+                <a href="#" class="btn btn1">HIRE ME</a>
+                <a href="#" class="btn btn2">DOWNLOAD CV</a>
+            </div>
+        </div>
+    </section>
+    
+    
+    <section class="about_section1" id="About">
+        
+            <div class="wrapper1">
+         <div class="card front-face">
+            <img src="/productImage/Angpa.png">
+         </div>
+         <div class="card back-face">
+            <img src="/productImage/Angpa.png">
+            <div class="info">
+               <div class="title">
+                  Doodle Custom
+               </div>
+               <p>
+                  The Master and <br>The Magician Artist.
+               </p>
+            </div>
+            <ul>
+               <a href="#"><i class="fab fa-facebook-f"></i></a>
+               <a href="https://www.instagram.com/angpa07/"><i class="fab fa-instagram"></i></a>
+               <a href="#"><i class="fab fa-youtube"></i></a>
+            </ul>
+         </div>
+      </div>
+        
+        <div class="about_details">
+            <h1>Angpa D Lama</h1>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae ipsam voluptas perspiciatis voluptatum magnam fugit deleniti, dolorem rerum excepturi quasi! <br><br>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore consectetur quidem animi at debitis.</p>
+            <div class="btns">
+                <a href="#" class="btn btn1">HIRE ME</a>
+                <a href="#" class="btn btn2">DOWNLOAD CV</a>
+            </div>
+        </div>
+    </section>
+
+<br>
+<br>
+<br>
+
+  
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="founder">About Us</a></li>
+                    <li><a href="faq">FQA</a></li>
+                    <li><a href="home">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Business Policies</h4>
+                <ul>
+                    <li><a href="termsnconditions">Terms and Conditions</a></li>
+                    <li><a href="privacypolicy">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a >Address: Jorpati, Kathmandu, Nepal </a></li>
+                    <li><a >Phone: (+977) 9803395758</a></li>
+                    <li><a >Email: doodlecustoms2019@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>  
+                <div class="social-links">
+                    <a href="https://www.facebook.com/doodlecustoms/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/channel/UCKruPuRupjfGcMAQgyJq7AQ"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.instagram.com/doodle.customs/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div> 
+        </div>
+    </div>
+</footer>
+</body>
+</html>

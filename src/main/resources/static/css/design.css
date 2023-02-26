@@ -1,0 +1,163 @@
+.introimage .doodley {
+	position: absolute;
+	width: 1000px;
+	height: 290px;
+	left: 445px;
+	top: 155px;
+	margin-bottom: 200px;
+}
+
+
+.filter {
+	margin-top: 300px;
+	padding:20px;
+}
+
+
+.list-group-item{
+	color:black;
+	padding-left: 30px;
+	border: none;
+	font-family: sans-serif;
+	font-size: 24px;
+	font-weight: bold;
+	
+}
+
+
+.list-group{
+	color: black;
+	font-family: sans-serif;
+	padding-left: 30px;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.filter a{
+    text-decoration: none;
+    color: #fff;
+    font-family: sans-serif;
+    font-size: 12px;
+    letter-spacing: 2px;
+    display: list-item;
+    padding-top: 15px;
+    padding-left: 15px;
+   
+}
+
+.filter a:hover{
+    transition: 0.5s;
+    letter-spacing: 4px;
+    text-transform: capitalize;
+}
+
+ 
+
+.iconss {
+  color: black;
+  font-size: 25px;
+  cursor: pointer;
+ 
+	}
+	
+
+
+
+
+
+
+
+
+/*Products*/
+.column {
+    float: left;
+    width: 25%;
+    padding: 0 15px;
+  }
+  
+  /* Remove extra left and right margins, due to padding */
+  .rows {
+    margin: 80px ;
+    padding-left: 120px;
+    padding-right: 120px;
+
+  }
+
+  
+  /* Clear floats after the columns */
+  .rows:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Responsive columns */
+  @media screen and (max-width: 600px) {
+    .column {
+      width: 100%;
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+  
+
+
+  /* Style the counter cards */
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    text-align: center;
+    background-color: #ffffff;
+    height: 430px;
+    width: 340px;
+    position: sticky;
+    padding-left: 10px;
+    margin-bottom: 100px;
+  }
+
+  .card:hover {
+    transform: scale(0.95);   
+    transition: transform 0.5s;
+    cursor: pointer;
+   
+  }
+  
+  .card .imgs{
+      height: 250px;
+      width: 260px;
+  }
+
+.card h4{
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 100px;
+    font-size: 30px;
+    color: #939393;
+    padding-top: 10px;
+}
+
+.card p{
+    font-family: 'Dongle', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+}
+
+/* search  */ */
+
+.search-container{
+	position: relative;
+	width: 400px;
+
+	
+}
+.search-result{
+	position: absolute;
+	background: white;
+	padding: 5px;
+	border: 1px solid gray;
+	display: none;
+	
+}
+
+ 

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="adminBase::layout(~{::section})">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+  <link rel="stylesheet" href="" th:href="@{/CSS/adminBase.css}"/>
+  
+    <title th:text="${title}"></title>
+  </head>
+  <body>
+
+	<section>
+
+		<div class="dash-content">
+			<div class="overview">
+				<div class="title">
+					<i class="uil uil-tachometer-fast-alt"></i> <span class="text">Dashboard</span>
+				</div>
+			</div>
+		</div>
+
+	<!-- 	<div class="boxes">
+			<div class="box box1">
+				<i><img src="/productImage/order.png"></i> <span class="text">Total
+					Orders</span> <span class="number">3</span>
+			</div>
+			<div class="box box2">
+				<i><img src="/productImage/users.png"></i> <span class="text">Users</span>
+				<span class="number">2</span>
+			</div>
+			<div class="box box3">
+				<i><img src="/productImage/message.png"></i> <span class="text">Messages</span>
+				<span class="number">0</span>
+			</div>
+		</div> -->
+
+
+		<div class="activity">
+			<div class="title">
+				<i class="uil uil-clock-three"></i> <span class="text">Recent
+					Orders</span>
+			</div>
+
+
+			<table class="table">
+				<thead class="thead-dark">
+					<tr style="color: var(--text-color);">
+						<th scope="col">orderId</th>
+						<th scope="col">Customer Name</th>
+						<th scope="col">Phone No.</th>
+						<th scope="col">Delivery Address</th>
+						<th scope="col">ProductId</th>
+						<th scope="col">PName</th>
+						<th scope="col">Size</th>
+						<th scope="col">Amount</th>
+						<th scope="col">OrderDate</th>
+						<th scope="col">Status</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="o : ${orders}" style="color: var(--text-color);">
+						<td th:text="${o.orderId}"></td>
+						<td th:text="${o.name}"></td>
+						<td th:text="${o.phoneNumber}"></td>
+						<td th:text="${o.address}"></td>
+						<td th:text="${o.productId}"></td>
+						<td th:text="${o.pName}"></td>
+						<td th:text="${o.size}"></td>
+						<td th:text="${o.totalAmount}"></td>
+						<td th:text="${o.orderDate}"></td>
+						<td th:text="${o.status}"></td>
+					</tr>
+				</tbody>
+			</table>
+
+
+
+
+		</div>
+
+	</section>
+
+</body>
+</html>

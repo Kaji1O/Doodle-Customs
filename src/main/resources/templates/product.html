@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" th:replace="adminBase::layout(~{::section})">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+ 
+	<section style="width: 100%; ">
+	
+	<!-- Displaying alert message of add contact page -->
+		<div th:if="${session.message}" class="" Style="width: 100%;">
+			<div th:classappend="${'alert-'+session.message.type}" class="alert"
+				role="alert">
+				<span th:text="${session.message.content}"></span>
+			</div>
+			<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+
+		<div
+			style="text-align: right; font-size: 21px; padding: 8px; padding-right: 15px; margin-top: 30px;">
+			<a th:href="@{/admin/product/add}"> <i class="fas fa-plus-circle" >Add
+					Product </i>
+			</a>
+		</div>
+		
+		<table class="table" style="color: var(--text-color);">
+			<thead>
+				<tr>
+					<th scope="col">SN</th>
+					<th scope="col">Image</th>
+					<th scope="col">Product Name</th>
+					<th scope="col">Category</th>
+					<th scope="col">Price</th>
+					<th scope="col">Delete</th>
+					<th scope="col">Update</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each=" p : ${products}">
+					<th th:text="${p.pId}"></th>
+					<td> <img src="" height="70px" width="70px" th:src="@{'/productImage/' + ${p.productImage}}" /></td>
+					<td th:text="${p.name}"></td>
+					<td th:text="${p.Category.name}"></td>
+					<td th:text="${p.price}"></td>
+					<td><a th:href="@{/admin/product/delete/{pId}(pId=${p.pId})}" class="btn btn-danger">Delete</a></td>
+					<td><a th:href="@{/admin/product/update/{pId}(pId=${p.pId})}" class="btn btn-warning">Update</a></td>
+
+				</tr>
+
+			</tbody>
+		</table>
+
+	
+		
+	</section>
+
+
+
+
+
+
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

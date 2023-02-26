@@ -1,0 +1,292 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <link rel="stylesheet" th:href="@{/CSS/custom.css}">
+        <link rel="stylesheet" th:href="@{/CSS/base.css}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    	<link href="https://fonts.googleapis.com/css2?family=Comforter&family=Dongle:wght@300&family=Neonderthaw&family=Open+Sans:wght@300&family=Pacifico&family=Roboto:wght@100&display=swap" rel="stylesheet">	
+    </head>
+    <body>
+        
+       <!--Navigation Bar-->
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a th:href="@{/home}">Doodle Custom</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/founder}">Founders Note</a></li>
+        <li><a th:href="@{/design}">Design</a></li>
+        <li><a th:href="@{/custom}">Custom</a></li>
+        <li><a th:href="@{/artist}">Artists</a></li>
+        <li><a th:href="@{/limitedEdition}">Limited Edition</a></li>
+        <li><a><i class="fas fa-user-circle"><span th:text="' '+${username}"></span></i></a></li>
+        <li><a th:href="@{/cart}"><i class="fas fa-cart-plus"></i>&nbsp(<span th:text="${cartCount}"> 0</span>)</a></li>
+        <li><a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i></a></li> 0</span>)</a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    </div>
+  </nav>
+  
+  <script>
+                const body = document.querySelector("body");
+                const navbar = document.querySelector(".navbar");
+                const menuBtn = document.querySelector(".menu-btn");
+                const cancelBtn = document.querySelector(".cancel-btn");
+                menuBtn.onclick = ()=>{
+                  navbar.classList.add("show");
+                  menuBtn.classList.add("hide");
+                  body.classList.add("disabled");
+                }
+                cancelBtn.onclick = ()=>{
+                  body.classList.remove("disabled");
+                  navbar.classList.remove("show");
+                  menuBtn.classList.remove("hide");
+                }
+                window.onscroll = ()=>{
+                  this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+                }
+              </script>
+    
+
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
+    <div class="introimage">
+			<img class="customart" th:src="@{/productImage/customs.png}">
+		</div>
+    
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+     <br>
+    <br>
+    <br>
+    <br>
+    
+        <div class="small-container single-product">
+            <div id="sticky-side">
+                <div id="side-box">
+                  <div class="side-header">
+                    <i class="fa fa-times close-icon" style="color: #ffff;" aria-hidden="true"></i>
+                  </div>
+                  <div class="grid-container">
+                  <div class="container customize-container-body" th:each="c : ${customs}">
+                      <div class="">
+                            <div class="customize-image-box">
+                                <div class="customImageContainer" id="customizeImgOne" >
+                                    <img th:src="@{'/productImage/' + ${c.image}}" class="customize-image-box-inner" width="50%">
+                                    <br>
+                                    <br>
+                                    <span th:text="${'Name: '+c.name}"></span><br>
+                                    <span th:text="${'Price: ' +c.price}"></span><br>
+                                    <span th:text="${'Duration: ' +c.duration+' Days'}"></span>
+                                </div>
+                            </div>
+                      </div>
+                      <a th:href="@{'/addToCartCustom/'+${c.dId}(dId=${c.dId})}" class="btn">Add to Cart</a>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            
+            <!--<h2 class="title" >Featured Products</h2>-->
+            <div class="roow">
+                    <div class="col-2">
+                        <img src="productImage/wows.png" id="productImg">
+                    </div>
+                
+                    <div class="col-2">
+                        <h1>Customize Your Own Design.</h1>
+                        <select>
+                            <option>Select Size</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                        <br>
+                        <input type="number" values="1">
+                        <h6>Quantity</h6>
+                        <a href="cart.html" class="btn customize-btn">Customize</a>
+                        <h3>Product Details <i class="fa fa-indent" ></i></h3>
+                        <br>
+                        <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+                    </div>
+                </div>
+            </div>
+        
+        
+        <!----------------------------------Title------------------------------------->
+        <br>
+        <br>
+        
+        <div class="small-container">
+                <h2 style="text-align: center;">Related Products</h2>
+                <a th:href="@{/design}" style="margin-left: 900px; text-decoration: none;">View More</a>
+            </div>
+        </div>
+                
+        <!----------------------------------products------------------------------------->
+        <div class="small-container">
+             <div class="roow">
+                     <div class="col-4">
+                        <a href="http://localhost:9090/design/details/7"><img src="/productImage/8 miles.jpeg"></a>
+                        <h4>8 miles</h4>
+                        <p>NPR 3500</p>
+                    </div>
+                    <div class="col-4">
+                        <a href="http://localhost:9090/design/details/182"><img src="/productImage/offthewall.jpeg"></a>
+                        <h4>Off The Wall</h4>
+                        <p>NPR 4000</p>
+                    </div>
+                    <div class="col-4">
+                        <a href="http://localhost:9090/design/details/9"><img src="/productImage/joker.png"></a>
+                        <h4>The Joker</h4>
+                        <p>NPR 3500</p>
+                    </div>
+                </div>
+        </div>
+
+        <!----------------------------------footer------------------------------------->
+        <!--Footer-->
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+				<div class="footer-col">
+					<h4>Information</h4>
+					<ul>
+						<li><a href="founder">About Us</a></li>
+						<li><a href="faq">FQA</a></li>
+						<li><a href="home">Testimonials</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>Business Policies</h4>
+					<ul>
+						<li><a href="termsnconditions">Terms and Conditions</a></li>
+						<li><a href="privacypolicy">Privacy Policy</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>Contact Us</h4>
+					<ul>
+						<li><a>Address: Jorpati, Kathmandu, Nepal </a></li>
+						<li><a>Phone: (+977) 9803395758</a></li>
+						<li><a>Email: doodlecustoms2019@gmail.com</a></li>
+					</ul>
+				</div>
+				<div class="footer-col">
+					<h4>follow us</h4>
+					<div class="social-links">
+						<a href="https://www.facebook.com/doodlecustoms/"><i
+							class="fab fa-facebook-f"></i></a> <a
+							href="https://www.youtube.com/channel/UCKruPuRupjfGcMAQgyJq7AQ"><i
+							class="fab fa-youtube"></i></a> <a
+							href="https://www.instagram.com/doodle.customs/"><i
+							class="fab fa-instagram"></i></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        
+        <script>
+            
+
+$(document).ready(function () {
+$('.customize-btn').click(function(event){
+    event.preventDefault();
+		$('#side-box').toggleClass('open-box');		
+	});
+	$('.close-icon').click(function(){
+		$('#side-box').removeClass('open-box');		
+	});
+	
+	$('.customize-side').click(function(){
+    event.preventDefault();
+		$('#conact-content').toggleClass('open-box');		
+	});
+	
+	$('.customImageContainer').click(function(){
+		$("#productImg").attr("src", $(this).find("img").attr("src"));
+	});
+	
+	$(document).click(function(e) {
+        if ($(e.target).closest('#side-box').length === 0 && $(e.target).closest('.customize-btn').length === 0) {
+            $("#side-box").removeClass("open-box");
+        }
+
+    });
+  });
+        </script>
+        
+        <!-----------------------------------js for toggle menu----------------------------------------------->
+        <script>
+            var menuItems=document.getElementById("MenuItems");
+            
+            MenuItems.style.maxHeight="0px";
+            function menutoggle(){
+                if(MenuItems.style.maxHeight == "0px"){
+                    MenuItems.style.maxHeight="200px";
+                }
+                else{
+                    MenuItems.style.maxHeight="0px";
+                }
+            }
+        </script>
+        
+        <!-----------------------js for product gallery-------------------->
+        
+        <script>
+            var productImg=document.getElementById("productImg");
+            var smallImg=document.getElementsByClassName("small-img");
+            
+            smallImg[0].onclick=function(){
+                productImg.src=smallImg[0].src;
+            }
+             smallImg[1].onclick=function(){
+                productImg.src=smallImg[1].src;
+            }
+              smallImg[2].onclick=function(){
+                productImg.src=smallImg[2].src;
+            }
+               smallImg[3].onclick=function(){
+                productImg.src=smallImg[3].src;
+            }
+            
+            
+        </script>
+    </body>
+</html>

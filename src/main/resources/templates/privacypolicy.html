@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <title>Doodle Customs</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="" th:href="@{/CSS/note.css}" />
+    <link rel="stylesheet" href="" th:href="@{/CSS/base.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Comforter&family=Dongle:wght@300&family=Neonderthaw&family=Open+Sans:wght@300&family=Pacifico&family=Roboto:wght@100&display=swap" rel="stylesheet">
+     
+
+</head>
+<body>
+
+   <!--Navigation Bar-->
+  <nav class="navbar">
+    <div class="content">
+      <div class="logo">
+        <a th:href="@{/home}">Doodle Custom</a>
+      </div>
+      <ul class="menu-list">
+        <div class="icon cancel-btn">
+          <i class="fas fa-times"></i>
+        </div>
+        <li><a th:href="@{/home}">Home</a></li>
+        <li><a th:href="@{/founder}">Founders Note</a></li>
+        <li><a th:href="@{/design}">Design</a></li>
+        <li><a th:href="@{/custom}">Custom</a></li>
+        <li><a th:href="@{/artist}">Artists</a></li>
+        <li><a th:href="@{/limitedEdition}">Limited Edition</a></li>
+        <li><a><i class="fas fa-user-circle"><span th:text="' '+${username}"></span></i></a></li>
+        <li><a th:href="@{/cart}"><i class="fas fa-cart-plus"></i>&nbsp(<span th:text="${cartCount}"> 0</span>)</a></li>
+        <li><a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i></a></li>
+      </ul>
+      <div class="icon menu-btn">
+        <i class="fas fa-bars"></i>
+    </div>
+    </div>
+  </nav>
+ 
+  <script>
+    const body = document.querySelector("body");
+    const navbar = document.querySelector(".navbar");
+    const menuBtn = document.querySelector(".menu-btn");
+    const cancelBtn = document.querySelector(".cancel-btn");
+    menuBtn.onclick = ()=>{
+      navbar.classList.add("show");
+      menuBtn.classList.add("hide");
+      body.classList.add("disabled");
+    }
+    cancelBtn.onclick = ()=>{
+      body.classList.remove("disabled");
+      navbar.classList.remove("show");
+      menuBtn.classList.remove("hide");
+    }
+    window.onscroll = ()=>{
+      this.scrollY > 20 ? navbar.classList.add("sticky") : navbar.classList.remove("sticky");
+    }
+  </script>
+  
+  <br>
+  <br>
+  <br>
+  <br>
+
+<!--Heading-->
+<div class="aboutus">
+    <h2> Doodle Customs / Privacy Policy</h2>
+</div>
+
+<br>
+<br>
+<br>
+
+<div class="headings">
+    <h2>Privacy Policy</h2>
+    <br>
+    <h3 style="padding-left: 100px;">- From Company</h3>
+</div>
+
+<br>
+
+
+<div class="para">
+    <p>This Privacy Policy discloses the privacy practices for the doodlecustoms.com.
+
+Privacy Policy is subject to change without any written or advance notice. However, we have agreed to notify you of the following standard Privacy Policy in place at the moment, while collecting your personal information:
+
+The information being collected and the source from which it is collected when collected from another person;
+Our name and address;
+The purpose for which the information is being collected;
+Whether or not the supply of information by yourself is mandatory or voluntary;
+The consequences of a failure to provide the requisite information;
+Any particular law authorizing or requiring the collection of the information;
+Whether we intend to transfer the information to a third country or international organization and the level of protection afforded to the information by the said third country or international organization;
+Any further information such as:
+the recipient of the information or with whom the information may be shared;
+the nature and category of the information;
+your right of access to and the right to rectify that information;
+your right to object to the processing of your personal information; and
+the right to lodge a complaint with the Information Regulator and the contact details of the Information Regulator.
+If you have questions or concerns regarding this statement, you should please contact Customer Support by email on doodlecustoms@gmail.com</p>
+</div>
+
+<br>
+<br>
+
+<div class="headings">
+  <h2>Special Offers</h2>
+  <br>
+</div>
+
+<div class="para">
+  <p>We send all new members a welcoming email to verify password and username. Established members will occasionally receive information on products, services, special deals, and a newsletter. Out of respect for the privacy of our users, our users have the option not to receive these types of communications (refer to our choice and opt-out section below).</p>
+  </div>
+
+<br>
+<br>
+
+<div class="headings">
+  <h2>Information Collection and Use</h2>
+  <br>
+</div>
+
+<div class="para">
+  <p>The information we collect from you is collected for a specific, explicitly defined and lawful purpose related to the function and activity of caliber shoes as established in our Terms of use for the Use of this Site. You acknowledge and agree that we may collect this information from you in connection with or as a consequence of your use of our site, including, without limitation, the supply of the online trading services to you.
+
+We are the sole owner of the information collected on this site. We will not sell, share, or rent this information to others in any way other than as disclosed in this Privacy Policy.
+
+We collect information from our users at several different points on our site. We collect information about your bidding, buying and selling activities if you choose to participate on our site as a result of you engaging in these activities, and also from ratings and comments received from other users regarding you engaging in those activities. We also collect information from any form of correspondence, such as emails and telephone conversations, from you or from a third party about you. We may also collect information from you if you choose to partake in special promotions with third parties on our site. This information will be shared with that third party, but only with your consent and for the purpose of that promotion.
+
+We will also collect financial information about you if you choose to bid for certain goods and services on our site, if you sell on our site, and also as set out in the Terms of Use of this Site. We do charge fees for selling, and your payment information will be used to charge you accordingly. We may pass your payment information onto recognized partners in certain cases, such as for charging you for selling and in those auctions where the services of shipping and delivery or fulfilment companies are offered to our users, but only in cases where our users have requested those services from us. Other information that we collect is outlined below.</p>
+  </div>
+
+  <br>
+  <br>
+
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+<!--Footer-->
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">FQA</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Business Policies</h4>
+                <ul>
+                    <li><a href="#">Terms and Conditions</a></li>
+                    <li><a href="#">Repair Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a >Address: Jorpati, Kathmandu, Nepal </a></li>
+                    <li><a >Phone: (+977) 9803395758</a></li>
+                    <li><a >Email: doodlecustoms2019@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
